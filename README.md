@@ -1,4 +1,4 @@
-## skytecGames test task 
+## SkytecGames test task 
 
 Реализация тестового задания (обязатльная + дополнительная часть)
 
@@ -20,7 +20,7 @@
 * запустить TestMain
 
 
-## task description
+## Task description
 
  есть объект клана, примерно такого вида
 
