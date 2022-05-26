@@ -13,5 +13,10 @@ create table gold_track
     clan_id     bigint references clan
 );
 
+ALTER TABLE clan OWNER TO skytec_user;
+ALTER TABLE gold_track OWNER TO skytec_user;
+
 INSERT INTO clan (name, gold) VALUES ('test_clan1', 2);
 INSERT INTO clan (name, gold) VALUES ('test_clan2', 3);
+
+
