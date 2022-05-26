@@ -12,7 +12,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class ClanRepositoryImpl implements ClanRepository{
+public class ClanRepositoryImpl implements ClanRepository {
 
     private static Logger logger = LoggerFactory.getLogger(ClanRepositoryImpl.class);
 
@@ -22,7 +22,7 @@ public class ClanRepositoryImpl implements ClanRepository{
 
         String sqlQuery = "SELECT * FROM clan WHERE id = ?";
         try (Connection connection = DataSource.getConnection(); PreparedStatement statement = connection.prepareStatement(sqlQuery);
-          ){
+        ) {
             statement.setLong(1, id);
             ResultSet resultSet = statement.executeQuery();
             if (resultSet.next()) {
@@ -42,7 +42,7 @@ public class ClanRepositoryImpl implements ClanRepository{
         boolean rowUpdated = false;
 
         try (Connection connection = DataSource.getConnection(); PreparedStatement statement = connection.prepareStatement(sqlQuery)
-        ){
+        ) {
             statement.setString(1, clan.getName());
             statement.setInt(2, clan.getGold());
             statement.setLong(3, clan.getId());
@@ -50,10 +50,7 @@ public class ClanRepositoryImpl implements ClanRepository{
             rowUpdated = statement.executeUpdate() > 0;
         } catch (SQLException e) {
             logger.error(String.format("SQLException in method updateClan: %s", e.getMessage()));
-
         }
-
-        return  rowUpdated;
+        return rowUpdated;
     }
-
 }
